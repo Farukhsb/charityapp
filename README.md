@@ -21,7 +21,7 @@ com.kodemakers.charity/
 ├── model/                   # Data models (User, Charity, Donation)
 ├── service/                 # Business logic & API services
 ├── custom/                  # Custom UI components
-├── util/                    # Fonts, helpers, extensions
+├── utilies/                    # Fonts, helpers, extensions
 └── CharityApp.java          # Application class
 ```
 
