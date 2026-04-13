@@ -1,74 +1,80 @@
 # CharityApp
 
-An Android application for charity management and donations.
+Android application for charity management and donations.
+
+## Status
+
+This repository is a fork of [`JstMagic/charityapp`](https://github.com/JstMagic/charityapp). The codebase still uses an older Android toolchain and Firebase setup, so contributors should expect some modernization work before targeting current Android versions.
+
+## What The App Includes
+
+- User authentication: login, sign up, forgot password
+- Charity management: stories, staff, updates
+- Donation flow and donation details
+- User profiles and contributor details
+- Notifications and media content screens
 
 ## Project Structure
 
-The application is organised using logical, feature-based package grouping within Android Studio.  
-This structure separates UI components, business logic, and data models to improve maintainability and scalability.  
-The layout below represents the **conceptual organisation of the code**, rather than the raw folder structure displayed on GitHub.
+The source code is organized under `app/src/main/java/com/kodemakers/charity/`:
 
 ```text
-com.kodemakers.charity/
-├── activities/
-│   ├── authentication/      # LoginActivity, SignUpActivity, ForgotPasswordActivity
-│   ├── donor/               # MainActivity, CharityDetailsActivity, DonationActivity
-│   ├── charity/             # AddNewStoryActivity, UpdateCharityDetailsActivity, AddStaffActivity
-│   ├── user/                # ProfileActivity, AccountDetailsActivity, UsersListActivity
-│   ├── content/             # StoriesActivity, PlayVideoActivity, AddVideoFeedActivity
-│   └── common/              # SplashActivity, NotificationActivity, IntroSteppersActivity
-├── adapter/                 # RecyclerView adapters
-├── model/                   # Data models (User, Charity, Donation)
-├── service/                 # Business logic & API services
-├── custom/                  # Custom UI components
-├── utilies/                    # Fonts, helpers, extensions
-└── CharityApp.java          # Application class
+activities/    Screens and flows
+adapter/       RecyclerView adapters
+app/           Application-wide config
+custom/        Helpers, networking, storage utilities
+fonts/         Custom text widgets
+model/         Response and domain models
+service/       Firebase and notification services
 ```
 
-## Technical Details
-- **Language**: Java (100%)
-- **Package**: `com.kodemakers.charity`
+## Prerequisites
 
-##  Quick Start
-
-### Prerequisites
 - Android Studio
-- Firebase account
+- JDK compatible with Android Gradle Plugin `3.3.2`
+- A Firebase project for `com.kodemakers.charity`
 
-### Installation
- Clone the repository:
-   ```bash
-   git clone https://github.com/JstMagic/charityapp.git
-   cd charityapp
+## Local Setup
+
+1. Clone your fork:
+
+```bash
+git clone https://github.com/<your-github-username>/charityapp.git
+cd charityapp
 ```
 
-1. Firebase Setup:
-   · Create a Firebase project
-   · Add Android app with package: com.kodemakers.charity
-   · Download google-services.json
-   · Replace the file in app/ directory
-2. Build and Run:
-   ```bash
-   # Open in Android Studio
-   # Click Run → Run 'app'
-   ```
+2. Add Firebase config:
+   Place your own `google-services.json` file in `app/google-services.json`.
 
-Features (Based on Activity Names)
+3. Open the project in Android Studio and let Gradle sync.
 
-- User Authentication: Login, SignUp, ForgotPassword
-- Charity Management: Add stories, videos, staff, update details
-- Donation System: Process and track donations
-- User Profiles: Contributor and account management
-- Content Management: Stories, videos, onboarding
-- Admin Features: User and staff listings
-- Notifications: In-app notifications system
+4. Run the `app` configuration on an emulator or device.
 
- Important Notes
- 
-- Update dependencies for current Android versions
-- Requires Firebase configuration
-- Contains both donor and admin interfaces
+## Secrets And Local Files
 
- Links
+This repo does not track signing keys or Firebase config anymore.
 
-· Repository: https://github.com/JstMagic/charityapp
+- Keep keystores out of version control.
+- Keep `google-services.json` local to your machine.
+- Use Android Studio's default debug signing for local development.
+
+## Notable Technical Details
+
+- Language: Java
+- Package: `com.kodemakers.charity`
+- Gradle wrapper: `4.10.1`
+- Android Gradle Plugin: `3.3.2`
+- `compileSdkVersion` / `targetSdkVersion`: `27`
+
+## Contribution Ideas
+
+- Upgrade Gradle, Android Gradle Plugin, and SDK targets
+- Replace deprecated Firebase Instance ID usage
+- Remove legacy storage assumptions for newer Android versions
+- Add setup validation and clearer error handling around Firebase-dependent flows
+- Add contributor docs and screenshots
+
+## Upstream
+
+- Fork: https://github.com/Farukhsb/charityapp
+- Original project: https://github.com/JstMagic/charityapp

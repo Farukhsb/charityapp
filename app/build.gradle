@@ -25,21 +25,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         useLibrary 'org.apache.http.legacy'
     }
-    signingConfigs {
-        key {
-            keyAlias 'charity_app'
-            keyPassword 'charity_app'
-             storeFile file(new File("").getAbsolutePath().concat('/app/jks_files/charity_app.jks'))
-//           storeFile file('/home/nkdroid/Desktop/jks_files_kodemakers/charity_app.jks')
-            //    storeFile file('/Users/nirav/Desktop/jks_files/nkdroid.jks')
-//            storeFile file('/home/nkdroid/Desktop/nkDroid Solutions/JKS/charity_app.jks')
-            storePassword 'charity_app'
-        }
-    }
     buildTypes {
-        debug {
-            signingConfig signingConfigs.key
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
